@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
+import Layout from '../components/Layout';
 
 const Home: NextPage = () => {
   return (
     <div>
-      <h1>hellow</h1>
+      <Layout vale="hom page c" title="amozon"></Layout>
     </div>
   );
 };
