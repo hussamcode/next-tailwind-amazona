@@ -1,6 +1,10 @@
+import React from 'react';
+
 import Head from 'next/head';
 import Link from 'next/link';
-const Layout = ({ vale, title }) => {
+import PropTypes from 'prop-types';
+
+const Layout = ({ children, title }) => {
   return (
     <>
       <Head>
@@ -21,13 +25,16 @@ const Layout = ({ vale, title }) => {
             </nav>
           </nav>
         </header>
-        <main className="container m-auto mt-4 px-4">{vale}</main>
+        <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
           <p>Copyright 2022 Amazon</p>
         </footer>
       </div>
     </>
   );
+};
+Layout.prototype = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Layout;
