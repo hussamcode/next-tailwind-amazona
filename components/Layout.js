@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { Store } from '../utils/Store';
 const Layout = ({ children, title }) => {
   const { state, dispatch } = useContext(Store);
+
   const { cart } = state;
 
   return (
@@ -20,7 +21,7 @@ const Layout = ({ children, title }) => {
           <nav className="flex flex-row h-12 justify-between px-3 shadow-sm items-center">
             <h1 className="text-lg font-bold">amazon</h1>
             <nav className="">
-              <Link href="/">
+              <Link href="/cart">
                 <a className="p-2">
                   Cart{' '}
                   {cart.items.length > 0 && (
