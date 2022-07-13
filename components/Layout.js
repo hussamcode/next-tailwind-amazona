@@ -3,8 +3,12 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-
+import { useContext } from 'react';
+import { Store } from '../utils/Store';
 const Layout = ({ children, title }) => {
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
+
   return (
     <>
       <Head>
@@ -17,7 +21,16 @@ const Layout = ({ children, title }) => {
             <h1 className="text-lg font-bold">amazon</h1>
             <nav className="">
               <Link href="/">
-                <a className="p-2">Cart</a>
+                <a className="p-2">
+                  Cart{' '}
+                  {cart.items.length > 0 && (
+                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                      {cart.items.reduce((totule, n) => {
+                        return totule + n.quantity;
+                      }, 0)}
+                    </span>
+                  )}
+                </a>
               </Link>
               <Link href="/">
                 <a className="p-2">Login</a>
